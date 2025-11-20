@@ -1,8 +1,7 @@
-const Company = require("../models/Company");
-
-const getAllCompanies = async (req, res) => {
+import Company from "../models/Company.js";
+export const getAllCompanies = async (req, res) => {
   try {
-    const companies = await Company.find({}).sort({ name: 1 });
+    const companies = await Company.find().sort({ name: 1 });
 
     res.status(200).json({
       success: true,
@@ -16,8 +15,4 @@ const getAllCompanies = async (req, res) => {
       error: error.message,
     });
   }
-};
-
-module.exports = {
-  getAllCompanies,
 };

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const Company = require("../models/Company");
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import Company from "../models/Company";
 
 // Load environment variables
 dotenv.config();

@@ -1,7 +1,10 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const connectDB = require("./config/db");
+import express from "express";
+import path from "path";
+import dotenv from "dotenv";
+import cors from "cors";
+import { connectDB } from "./config/db.js";
+
+import companyRouter from "./routes/companies.js";
 
 // Load environment variables
 dotenv.config();
@@ -30,7 +33,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/companies", require("./routes/companies"));
+app.use("/api/companies", companyRouter);
+
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "/frontend/build")));
+// app.get("*", (req, res) =>
+//   res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
+// );
 
 // Health check routes
 app.get("/", (req, res) => {

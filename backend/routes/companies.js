@@ -1,10 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const { getAllCompanies } = require("../controllers/companyController");
+import { Router } from "express";
+import { getAllCompanies } from "../controllers/companyController.js";
+const companyRouter = Router();
 
 // Routes for /api/companies
-router.route("/").get(getAllCompanies);
+companyRouter.get("/", getAllCompanies);
 
-router.route("/:id");
+// companyRouter.get("/:id");
 
-module.exports = router;
+export default companyRouter;
