@@ -15,7 +15,10 @@ const app = express();
 // ✅ CORS Middleware - MUST be BEFORE routes
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: [
+      "https://company-directory-feature.vercel.app/",
+      "http://localhost:3000",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
